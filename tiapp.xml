@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="com-appcelerator-apm-id" type="string">54c8663f3cf56b9e0457d8d4</property>
+    <property name="acs-api-key-production" type="string">XOsrpEvjLC1Dq6l5Ofz0XEYgU4VdIfv9</property>
+    <property name="acs-authbase-url" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-api-key-development" type="string">ifX6XyIhRldjdzGSTybfXqa5DBOYYbEV</property>
     <id>com.bd.Newpaper</id>
     <name>News Paper</name>
     <version>1.0</version>
@@ -35,14 +40,50 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleTypeRole</key>
+                        <string>Editor</string>
+                        <key>CFBundleURLName</key>
+                        <string>com.bd.Newpaper</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <string>touchtest-090efc00-8ad4-4c88-a0d0-fd100668263b</string>
+                        </array>
+                    </dict>
+                </array>
             </dict>
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest>
-            <application android:theme="@style/Theme.NoActionBar"/>
+            <application android:theme="@style/Theme.NoActionBar">
+                <activity
+                    android:configChanges="keyboardHidden|orientation"
+                    android:label="News Paper"
+                    android:name=".NewsPaperActivity" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                    <intent-filter>
+                        <data android:scheme="touchtest-090efc00-8ad4-4c88-a0d0-fd100668263b"/>
+                        <action android:name="android.intent.action.VIEW"/>
+                        <category android:name="android.intent.category.BROWSABLE"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+                    </intent-filter>
+                </activity>
+                <service android:enabled="true" android:exported="false" android:name="com.soasta.android.touchtest.TouchTestService"/>
+            </application>
             <!-- Need to specify at least API level 11 for Titanium SDK 3.2.x and prior -->
             <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <uses-permission android:name="android.permission.GET_TASKS"/>
         </manifest>
     </android>
     <mobileweb>
@@ -54,7 +95,15 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
+        <module platform="android">com.appcelerator.apm</module>
+        <module deploy-type="development" platform="iphone" version="1.0">com.soasta.touchtest</module>
+        <module platform="commonjs">ti.cloud</module>
         <module platform="iphone">dk.napp.slidemenu</module>
+        <module deploy-type="development" platform="android" version="1.0">com.soasta.touchtest</module>
+        <module platform="iphone">com.appcelerator.apm</module>
+        <module deploy-type="test" platform="android" version="1.0">com.soasta.touchtest</module>
+        <module deploy-type="test" platform="iphone" version="1.0">com.soasta.touchtest</module>
+        <module platform="android">ti.cloudpush</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -64,4 +113,9 @@
         <target device="mobileweb">true</target>
     </deployment-targets>
     <sdk-version>3.5.0.GA</sdk-version>
+    <property name="com-soasta-touchtest-version" type="string">7419.212</property>
+    <plugins>
+        <plugin>com.soasta.touchtest.android</plugin>
+    </plugins>
+    <property name="com-soasta-touchtest-ios-appId" type="string">330044</property>
 </ti:app>

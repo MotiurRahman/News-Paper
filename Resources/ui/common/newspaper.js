@@ -126,8 +126,10 @@ function newspaper(navWin) {
 			var detail = require('ui/common/detaiWin');
 			var detailWin = new detail(e.rowData.titleData, e.rowData.link);
 			if (Ti.Platform.osname == 'iphone') {
+				Titanium.Analytics.featureEvent('openDetailWindow');
 				navWin.openWindow(detailWin);
 			} else {
+				Titanium.Analytics.featureEvent('openDetailWindow');
 				detailWin.open();
 			}
 		}

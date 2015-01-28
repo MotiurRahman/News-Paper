@@ -29,9 +29,24 @@ if (Ti.version < 1.8) {
 		Window = require('ui/handheld/ApplicationWindow');
 
 	} else {
+
+		var pushTest = require('lib/network');
+		pushTest.androidPush();
+
 		Window = require('ui/handheld/android/ApplicationWindow');
 	}
 
-	new Window().open();
+	//var launch = require('ti.enroll');
+
+	var win = new Window();
+
+	win.open();
+
+	win.addEventListener('open', function() {
+		Titanium.Analytics.featureEvent('open.Main.Window', {
+			id : '1234',
+			desc : 'Open News Paper main Window'
+		});
+	});
 
 })();

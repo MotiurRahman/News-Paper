@@ -74,6 +74,11 @@ function detail(title, link) {
 	webview.addEventListener('load', function() {
 		activityIndicator.hide();
 	});
+	
+	window.addEventListener('androidback', function() {
+		Titanium.Analytics.featureEvent('CloseDetailWindow');
+		window.close();
+	});
 
 	return window;
 

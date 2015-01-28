@@ -38,3 +38,79 @@ exports.getInfo = function(activityIndicator, _CB) {
 		client.send();
 	}
 };
+
+exports.androidPush = function() {
+	var CloudPush = require('ti.cloudpush');
+	CloudPush.debug = true;
+	CloudPush.enabled = true;
+	var deviceToken = null;
+	var Cloud = require('ti.cloud');
+	Cloud.debug = true;
+
+	loginDefault();
+
+	CloudPush.retrieveDeviceToken({
+		success : deviceTokenSuccess,
+		error : deviceTokenError
+	});
+
+	// Save the device token for subsequent API calls
+	function deviceTokenSuccess(e) {
+		deviceToken = e.deviceToken;
+	}
+
+	function deviceTokenError(e) {
+		//alert('Failed to register for push notifications! ' + e.error);
+	}
+
+	// Process incoming push notifications
+	CloudPush.addEventListener('callback', function(evt) {
+		//	alert("Notification received: " + evt.payload);
+
+		var adView = require('lib/adPage');
+		data = new adView();
+		data.open();
+
+	});
+
+	CloudPush.addEventListener('trayClickLaunchedApp', function(evt) {
+		//alert('Tray Click Launched App (app was not running)');
+		Ti.API.info('Tray Click Launched App (app was not running)');
+	});
+
+	CloudPush.addEventListener('trayClickFocusedApp', function(evt) {
+		//alert('Tray Click Focused App (app was already running)');
+		Ti.API.info('Tray Click Focused App (app was already running)');
+	});
+
+	function loginDefault(e) {
+		// At first you need to create an user from the application dashboard
+		// Then login that email and password
+		Cloud.Users.login({
+			login : 'motiur.mbstu@gmail.com',
+			password : '1234'
+		}, function(e) {
+			if (e.success) {
+				//alert("login success" + deviceToken);
+				defaultSubscribe();
+			} else {
+				//alert('Error: ' + ((e.error && e.message) || JSON.stringify(e)));
+			}
+		});
+	}
+
+	function defaultSubscribe() {
+		Cloud.PushNotifications.subscribe({
+			channel : 'Android Test',
+			device_token : deviceToken,
+			type : 'gcm'
+		}, function(e) {
+			if (e.success) {
+				//alert('Subscribed for Push Notification!');
+			} else {
+				//alert('Error:' + ((e.error && e.message) || JSON.stringify(e)));
+			}
+		});
+	}
+
+};
