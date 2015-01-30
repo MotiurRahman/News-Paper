@@ -30,13 +30,13 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		11570A2C89934F599A6B5E0B /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B409082EBE4226B28B7BB5 /* libcom.appcelerator.apm.a */; };
-		2222E37F0B7041C6B6639B7B /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6715D1C7C23475084094CBB /* libdk.napp.slidemenu.a */; };
-		43270A3865CA49B4B43F4180 /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01276591224F40009A530159 /* libcom.soasta.touchtest.a */; };
+		9015121CF4B0482EA8637CC2 /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3B6D3EDC614501B40FC539 /* libcom.appcelerator.apm.a */; };
+		116465A0A163422E866CCBC6 /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB483BF5DCF441598B398E8 /* libdk.napp.slidemenu.a */; };
+		23C1839778B248F8853A09C8 /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02698DB7BC8A47B090EC5FBB /* libcom.soasta.touchtest.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		73A732348F6746EBAFFBE1BC /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B409082EBE4226B28B7BB5 /* libcom.appcelerator.apm.a */; };
-		B889297909E9434FB3E0202B /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6715D1C7C23475084094CBB /* libdk.napp.slidemenu.a */; };
-		B8FEB83BC9474E36B56A931A /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01276591224F40009A530159 /* libcom.soasta.touchtest.a */; };
+		91E77390F46C443BB269276D /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3B6D3EDC614501B40FC539 /* libcom.appcelerator.apm.a */; };
+		6274D4DDA732469EA771A996 /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB483BF5DCF441598B398E8 /* libdk.napp.slidemenu.a */; };
+		CD10175EC3CE49FEAE322C83 /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02698DB7BC8A47B090EC5FBB /* libcom.soasta.touchtest.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -894,9 +894,9 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		2BF14BB687B3417BA5A6FC79 /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B409082EBE4226B28B7BB5 /* libcom.appcelerator.apm.a */; };
-		0C0BCA2DA990442DB0F2ADC1 /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6715D1C7C23475084094CBB /* libdk.napp.slidemenu.a */; };
-		F3764BBD56FE4F9FB8DE890F /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01276591224F40009A530159 /* libcom.soasta.touchtest.a */; };
+		882CB6BA82B44061ABC3C845 /* libcom.appcelerator.apm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3B6D3EDC614501B40FC539 /* libcom.appcelerator.apm.a */; };
+		3504737158564E01A5F40194 /* libdk.napp.slidemenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB483BF5DCF441598B398E8 /* libdk.napp.slidemenu.a */; };
+		B22608497F164323B10E39F9 /* libcom.soasta.touchtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02698DB7BC8A47B090EC5FBB /* libcom.soasta.touchtest.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
 		DABF3ECF134D210400836137 /* TiBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF3ECE134D210400836137 /* TiBuffer.m */; };
@@ -946,9 +946,9 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		39B409082EBE4226B28B7BB5 /* libcom.appcelerator.apm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.appcelerator.apm.a; path = "/Users/gsl001/Library/Application Support/Titanium/modules/iphone/com.appcelerator.apm/1.1.1/libcom.appcelerator.apm.a"; sourceTree = "<absolute>"; };
-		F6715D1C7C23475084094CBB /* libdk.napp.slidemenu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdk.napp.slidemenu.a; path = "/Titanium/AppC_project/News Paper/modules/iphone/dk.napp.slidemenu/1.4.3/libdk.napp.slidemenu.a"; sourceTree = "<absolute>"; };
-		01276591224F40009A530159 /* libcom.soasta.touchtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.soasta.touchtest.a; path = "/Titanium/AppC_project/News Paper/modules/iphone/com.soasta.touchtest/1.0/libcom.soasta.touchtest.a"; sourceTree = "<absolute>"; };
+		EF3B6D3EDC614501B40FC539 /* libcom.appcelerator.apm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.appcelerator.apm.a; path = "/Users/gsl001/Library/Application Support/Titanium/modules/iphone/com.appcelerator.apm/1.1.1/libcom.appcelerator.apm.a"; sourceTree = "<absolute>"; };
+		7FB483BF5DCF441598B398E8 /* libdk.napp.slidemenu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdk.napp.slidemenu.a; path = "/Titanium/AppC_project/News Paper/modules/iphone/dk.napp.slidemenu/1.4.3/libdk.napp.slidemenu.a"; sourceTree = "<absolute>"; };
+		02698DB7BC8A47B090EC5FBB /* libcom.soasta.touchtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.soasta.touchtest.a; path = "/Titanium/AppC_project/News Paper/modules/iphone/com.soasta.touchtest/1.0/libcom.soasta.touchtest.a"; sourceTree = "<absolute>"; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		242E967511BAD2F20046A0D0 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Classes/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
@@ -1580,9 +1580,9 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				11570A2C89934F599A6B5E0B /* libcom.appcelerator.apm.a in Frameworks */,
-				2222E37F0B7041C6B6639B7B /* libdk.napp.slidemenu.a in Frameworks */,
-				43270A3865CA49B4B43F4180 /* libcom.soasta.touchtest.a in Frameworks */,
+				9015121CF4B0482EA8637CC2 /* libcom.appcelerator.apm.a in Frameworks */,
+				116465A0A163422E866CCBC6 /* libdk.napp.slidemenu.a in Frameworks */,
+				23C1839778B248F8853A09C8 /* libcom.soasta.touchtest.a in Frameworks */,
 				B606EF60190B42FB00663EFC /* libAPSHTTPClient.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
@@ -1624,9 +1624,9 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				73A732348F6746EBAFFBE1BC /* libcom.appcelerator.apm.a in Frameworks */,
-				B889297909E9434FB3E0202B /* libdk.napp.slidemenu.a in Frameworks */,
-				B8FEB83BC9474E36B56A931A /* libcom.soasta.touchtest.a in Frameworks */,
+				91E77390F46C443BB269276D /* libcom.appcelerator.apm.a in Frameworks */,
+				6274D4DDA732469EA771A996 /* libdk.napp.slidemenu.a in Frameworks */,
+				CD10175EC3CE49FEAE322C83 /* libcom.soasta.touchtest.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -1667,9 +1667,9 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				2BF14BB687B3417BA5A6FC79 /* libcom.appcelerator.apm.a in Frameworks */,
-				0C0BCA2DA990442DB0F2ADC1 /* libdk.napp.slidemenu.a in Frameworks */,
-				F3764BBD56FE4F9FB8DE890F /* libcom.soasta.touchtest.a in Frameworks */,
+				882CB6BA82B44061ABC3C845 /* libcom.appcelerator.apm.a in Frameworks */,
+				3504737158564E01A5F40194 /* libdk.napp.slidemenu.a in Frameworks */,
+				B22608497F164323B10E39F9 /* libcom.soasta.touchtest.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -2726,9 +2726,9 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				39B409082EBE4226B28B7BB5 /* libcom.appcelerator.apm.a */,
-				F6715D1C7C23475084094CBB /* libdk.napp.slidemenu.a */,
-				01276591224F40009A530159 /* libcom.soasta.touchtest.a */,
+				EF3B6D3EDC614501B40FC539 /* libcom.appcelerator.apm.a */,
+				7FB483BF5DCF441598B398E8 /* libdk.napp.slidemenu.a */,
+				02698DB7BC8A47B090EC5FBB /* libcom.soasta.touchtest.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,

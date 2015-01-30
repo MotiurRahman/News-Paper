@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bd.Newpaper" android:versionCode="1" android:versionName="1.0" android:installLocation="preferExternal">
+	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
+	<application android:icon="@drawable/appicon" android:label="News Paper" android:name="NewsPaperApplication" android:debuggable="false" android:theme="@style/Theme.NoActionBar">
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="News Paper" android:name=".NewsPaperActivity" android:theme="@style/Theme.Titanium">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+			<intent-filter>
+				<data android:scheme="touchtest-090efc00-8ad4-4c88-a0d0-fd100668263b"/>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name="org.appcelerator.titanium.TiActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+		<activity android:name="org.appcelerator.titanium.TiTranslucentActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@style/Theme.AppCompat.Translucent"/>
+		<activity android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:configChanges="screenSize"/>
+		<activity android:name="com.crittercism.NotificationActivity" android:configChanges="screenSize"/>
+		<service android:name="com.appcelerator.analytics.APSAnalyticsService" android:exported="false"/>
+		<service android:enabled="true" android:exported="false" android:name="com.soasta.android.touchtest.TouchTestService"/>
+		<receiver android:name="com.appcelerator.aps.IntentReceiver"/>
+		<receiver android:name="com.appcelerator.aps.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+				<category android:name="com.bd.Newpaper"/>
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.appcelerator.aps.PushBroadcastReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED"/>
+				<action android:name="android.intent.action.PACKAGE_REPLACED"/>
+				<data android:scheme="package" android:path="com.bd.Newpaper"/>
+			</intent-filter>
+		</receiver>
+		<meta-data android:name="com.google.android.gms.version" android:value="6171000"/>
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.BLUETOOTH"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+	<uses-permission android:name="android.permission.GET_TASKS"/>
+	<uses-permission android:name="android.permission.READ_LOGS"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="com.bd.Newpaper.permission.C2D_MESSAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+	<permission android:name="com.bd.Newpaper.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+</manifest>

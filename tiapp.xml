@@ -79,7 +79,7 @@
 				<service android:enabled="true" android:exported="false" android:name="com.soasta.android.touchtest.TouchTestService"/>
 			</application>
 			<!-- Need to specify at least API level 11 for Titanium SDK 3.2.x and prior -->
-			<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21"/>
+			<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
 			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.READ_PHONE_STATE"/>

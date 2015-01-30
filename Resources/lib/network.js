@@ -106,12 +106,35 @@ exports.androidPush = function() {
 			type : 'gcm'
 		}, function(e) {
 			if (e.success) {
-				Ti.App.Properties.setBool('data',true);
+				Ti.App.Properties.setBool('data', true);
 				alert('Subscribed for Push Notification!');
 			} else {
 				//alert('Error:' + ((e.error && e.message) || JSON.stringify(e)));
 			}
 		});
+	}
+
+};
+
+exports.animation = function(self) {
+	if (value == true) {
+		self.animate({
+			left : 200,
+			right : -200,
+			duration : 300,
+			curve : Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+		});
+		value = false;
+
+	} else {
+		self.animate({
+			left : 0,
+			right : 0,
+			duration : 200,
+			curve : Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+		});
+		value = true;
+
 	}
 
 };

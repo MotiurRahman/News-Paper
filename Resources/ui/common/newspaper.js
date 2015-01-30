@@ -1,11 +1,21 @@
 //FirstView Component Constructor
 function newspaper(navWin) {
 	//create object instance, a parasitic subclass of Observable
+
 	var self = Ti.UI.createView({
 		//layout : 'vertical'
 		borderColor : 'gray',
 		borderWidth : 2,
+		backgroundColor : '#fff',
+		zIndex : 4
+
 	});
+	var menuView = require('ui/common/menuData');
+	menuData = new menuView(self);
+
+	var section = null;
+	var list = null;
+	var itemData = null;
 
 	if (Ti.Platform.osname == 'android') {
 
@@ -13,7 +23,7 @@ function newspaper(navWin) {
 			width : Ti.UI.FILL,
 			height : 50,
 			backgroundColor : 'gray',
-			top : 0
+			top : 0,
 
 		});
 		self.add(mainView);
@@ -32,6 +42,43 @@ function newspaper(navWin) {
 
 		// Add to the parent view.
 		mainView.add(title);
+
+		// Create an ImageView.
+		var menu = Ti.UI.createImageView({
+			image : '/menu.png',
+			width : 40,
+			height : 40,
+			left : 10
+		});
+
+		menu.addEventListener('click', function() {
+			//alert(motiur);
+			var animationView = require('lib/network');
+			animationView.animation(self);
+		});
+
+		// Add to the parent view.
+		mainView.add(menu);
+
+		// Create an ImageView.
+		var refresh = Ti.UI.createImageView({
+			image : '/menu.png',
+			width : 40,
+			height : 40,
+			right : 10
+		});
+		refresh.addEventListener('click', function() {
+			activityIndicator.show();
+			itemData = [];
+			section.setItems(itemData);
+			list.setSections(section);
+			UpdateNews();
+
+		});
+
+		mainView.add(refresh);
+
+		navWin.add(menuData);
 
 	}
 
@@ -63,94 +110,100 @@ function newspaper(navWin) {
 	});
 	inTView.add(activityIndicator);
 	activityIndicator.show();
-	var news = require('lib/network');
 
-	news.getInfo(activityIndicator, function(e) {
+	UpdateNews();
 
-		var myTemplate = {
+	function UpdateNews() {
+		var news = require('lib/network');
+		news.getInfo(activityIndicator, function(e) {
 
-			childTemplates : [{
-				type : 'Ti.UI.ImageView', // Use an image view for the image
-				bindId : 'pic', // Maps to a custom pic property of the item data
-				properties : {// Sets the image view  properties
-					width : '50dp',
-					height : '50dp',
-					defaultImage : '/appicon.png',
-					left : 5
-				}
+			var myTemplate = {
 
-			}, {// Subtitle
-				type : 'Ti.UI.Label', // Use a label for the subtitle
-				bindId : 'title', // Maps to a custom es_info property of the item data
-				properties : {// Sets the label properties
-					color : '#000',
-					font : {
-						fontFamily : 'Arial',
-						fontSize : '20dp'
+				childTemplates : [{
+					type : 'Ti.UI.ImageView', // Use an image view for the image
+					bindId : 'pic', // Maps to a custom pic property of the item data
+					properties : {// Sets the image view  properties
+						width : '50dp',
+						height : '50dp',
+						defaultImage : '/appicon.png',
+						left : 0
+					}
+
+				}, {// Subtitle
+					type : 'Ti.UI.Label', // Use a label for the subtitle
+					bindId : 'title', // Maps to a custom es_info property of the item data
+					properties : {// Sets the label properties
+						color : '#000',
+						font : {
+							fontFamily : 'Arial',
+							fontSize : '20dp'
+						},
+						left : '60dp',
+						//link : e[i].postLink,
 					},
-					left : '60dp',
-					//link : e[i].postLink,
-				},
-				events : {
-					click : report
-				}
-			}]
-		};
+					events : {
+						click : report
+					}
+				}]
+			};
 
-		var itemData = [];
+			itemData = [];
 
-		for (var i = 0; i < e.length; i++) {
-			//var paper =  ;
+			for (var i = 0; i < e.length; i++) {
+				//var paper =  ;
 
-			itemData.push({
-				pic : {
-					image : e[i].postImage,
+				itemData.push({
+					pic : {
+						image : e[i].postImage,
+					},
+					title : {
+						text : e[i].postTitle,
+					},
+					detail : {
+						link : e[i].postLink,
+					}
+				});
+			}
+
+			section = Ti.UI.createListSection({});
+			section.setItems(itemData);
+
+			list = Ti.UI.createListView({
+				sections : [section],
+				templates : {
+					'template' : myTemplate
 				},
-				title : {
-					text : e[i].postTitle,
-				},
-				detail : {
-					link : e[i].postLink,
-				}
+				defaultItemTemplate : 'template',
+				top : (Ti.Platform.osname == 'iphone') ? 0 : 50,
+				zIndex : 3,
+				backgroundColor : '#fff'
+
 			});
-		}
+			self.add(list);
 
-		var section = Ti.UI.createListSection({});
-		section.setItems(itemData);
+			function report(e) {
+				var item = e.section.getItemAt(e.itemIndex);
+				if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
+					alert('please connect your device to the network');
 
-		var list = Ti.UI.createListView({
-			sections : [section],
-			templates : {
-				'template' : myTemplate
-			},
-			defaultItemTemplate : 'template',
-			top : (Ti.Platform.osname == 'iphone') ? 0 : 50,
-			zIndex : 3,
-
-		});
-		self.add(list);
-
-		function report(e) {
-			var item = e.section.getItemAt(e.itemIndex);
-			if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
-				alert('please connect your device to the network');
-
-			} else {
-				var detail = require('ui/common/detaiWin');
-				var detailWin = new detail(item.title.text, item.detail.link);
-				if (Ti.Platform.osname == 'iphone') {
-					Titanium.Analytics.featureEvent('openDetailWindow');
-					navWin.openWindow(detailWin);
 				} else {
-					Titanium.Analytics.featureEvent('openDetailWindow');
-					detailWin.open();
+					var detail = require('ui/common/detaiWin');
+					var detailWin = new detail(item.title.text, item.detail.link);
+					if (Ti.Platform.osname == 'iphone') {
+						Titanium.Analytics.featureEvent('openDetailWindow');
+						navWin.openWindow(detailWin);
+					} else {
+						Titanium.Analytics.featureEvent('openDetailWindow');
+						detailWin.open();
+					}
 				}
 			}
-		}
 
 
-		activityIndicator.hide();
-	});
+			activityIndicator.hide();
+		});
+	}
+
 
 	self.add(inTView);
 
