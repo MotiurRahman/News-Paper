@@ -1,0 +1,5 @@
+// this is a generated file - DO NOT EDIT
+
+COM_SOASTA_TOUCHTEST_OTHER_LDFLAGS=$(inherited) -F$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/ -framework GraphicsServices
+DK_NAPP_SLIDEMENU_OTHER_LDFLAGS=$(inherited) -framework QuartzCore -framework CoreGraphics
+OTHER_LDFLAGS=$(inherited) $(COM_SOASTA_TOUCHTEST_OTHER_LDFLAGS) $(DK_NAPP_SLIDEMENU_OTHER_LDFLAGS) 

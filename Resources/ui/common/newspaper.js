@@ -3,6 +3,8 @@ function newspaper(navWin) {
 	//create object instance, a parasitic subclass of Observable
 	var self = Ti.UI.createView({
 		//layout : 'vertical'
+		borderColor : 'gray',
+		borderWidth : 2,
 	});
 
 	if (Ti.Platform.osname == 'android') {
@@ -10,7 +12,7 @@ function newspaper(navWin) {
 		var mainView = Ti.UI.createView({
 			width : Ti.UI.FILL,
 			height : 50,
-			backgroundColor : 'red',
+			backgroundColor : 'gray',
 			top : 0
 
 		});
@@ -19,7 +21,7 @@ function newspaper(navWin) {
 		// Create a Label.
 		var title = Ti.UI.createLabel({
 			text : 'BD News24.com',
-			color : 'Green',
+			color : '#000',
 			font : {
 				fontSize : 20
 			},
@@ -52,12 +54,6 @@ function newspaper(navWin) {
 		width : Ti.UI.SIZE
 	});
 
-	// Create a TableView.
-	var newsTable = Ti.UI.createTableView({
-		top : (Ti.Platform.osname == 'iphone') ? 0 : 50,
-		zIndex : 3
-	});
-
 	var inTView = Ti.UI.createView({
 		width : Ti.UI.FILL,
 		height : 50,
@@ -71,73 +67,91 @@ function newspaper(navWin) {
 
 	news.getInfo(activityIndicator, function(e) {
 
-		var newsData = [];
+		var myTemplate = {
 
-		Ti.API.info("News Length:" + e.length);
+			childTemplates : [{
+				type : 'Ti.UI.ImageView', // Use an image view for the image
+				bindId : 'pic', // Maps to a custom pic property of the item data
+				properties : {// Sets the image view  properties
+					width : '50dp',
+					height : '50dp',
+					defaultImage : '/appicon.png',
+					left : 5
+				}
+
+			}, {// Subtitle
+				type : 'Ti.UI.Label', // Use a label for the subtitle
+				bindId : 'title', // Maps to a custom es_info property of the item data
+				properties : {// Sets the label properties
+					color : '#000',
+					font : {
+						fontFamily : 'Arial',
+						fontSize : '20dp'
+					},
+					left : '60dp',
+					//link : e[i].postLink,
+				},
+				events : {
+					click : report
+				}
+			}]
+		};
+
+		var itemData = [];
 
 		for (var i = 0; i < e.length; i++) {
+			//var paper =  ;
 
-			var row = Titanium.UI.createTableViewRow({
-				height : 60,
-				link : e[i].postLink,
-				titleData : e[i].postTitle,
-			});
-
-			// Create a Label.
-			var newsTitle = Ti.UI.createLabel({
-				text : e[i].postTitle,
-				color : '#000',
-				font : {
-					fontSize : 20
+			itemData.push({
+				pic : {
+					image : e[i].postImage,
 				},
-				left : 60,
+				title : {
+					text : e[i].postTitle,
+				},
+				detail : {
+					link : e[i].postLink,
+				}
 			});
+		}
 
-			// Add to the parent view.
-			row.add(newsTitle);
+		var section = Ti.UI.createListSection({});
+		section.setItems(itemData);
 
-			// Create an ImageView.
-			var image = Ti.UI.createImageView({
-				image : e[i].postImage,
-				width : 50,
-				height : 50,
-				left : 5
-			});
+		var list = Ti.UI.createListView({
+			sections : [section],
+			templates : {
+				'template' : myTemplate
+			},
+			defaultItemTemplate : 'template',
+			top : (Ti.Platform.osname == 'iphone') ? 0 : 50,
+			zIndex : 3,
 
-			// Add to the parent view.
-			row.add(image);
+		});
+		self.add(list);
 
-			newsData.push(row);
-			newsTable.setData(newsData);
-		};
-		activityIndicator.hide();
-	});
+		function report(e) {
+			var item = e.section.getItemAt(e.itemIndex);
+			if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
+				alert('please connect your device to the network');
 
-	//Ti.API.info("motiur rahman:" + news.length);
-
-	// Listen for click events.
-	newsTable.addEventListener('click', function(e) {
-		//alert('link: \'' + e.rowData.link);
-
-		if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
-			alert('please connect your device to the network');
-
-		} else {
-			var detail = require('ui/common/detaiWin');
-			var detailWin = new detail(e.rowData.titleData, e.rowData.link);
-			if (Ti.Platform.osname == 'iphone') {
-				Titanium.Analytics.featureEvent('openDetailWindow');
-				navWin.openWindow(detailWin);
 			} else {
-				Titanium.Analytics.featureEvent('openDetailWindow');
-				detailWin.open();
+				var detail = require('ui/common/detaiWin');
+				var detailWin = new detail(item.title.text, item.detail.link);
+				if (Ti.Platform.osname == 'iphone') {
+					Titanium.Analytics.featureEvent('openDetailWindow');
+					navWin.openWindow(detailWin);
+				} else {
+					Titanium.Analytics.featureEvent('openDetailWindow');
+					detailWin.open();
+				}
 			}
 		}
 
+
+		activityIndicator.hide();
 	});
 
-	// Add to the parent view.
-	self.add(newsTable);
 	self.add(inTView);
 
 	return self;

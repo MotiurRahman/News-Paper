@@ -29,9 +29,11 @@ if (Ti.version < 1.8) {
 		Window = require('ui/handheld/ApplicationWindow');
 
 	} else {
-
-		var pushTest = require('lib/network');
-		pushTest.androidPush();
+		var data = Ti.App.Properties.getBool('data');
+		if (data != true) {
+			var pushTest = require('lib/network');
+			pushTest.androidPush();
+		}
 
 		Window = require('ui/handheld/android/ApplicationWindow');
 	}
@@ -43,10 +45,7 @@ if (Ti.version < 1.8) {
 	win.open();
 
 	win.addEventListener('open', function() {
-		Titanium.Analytics.featureEvent('open.Main.Window', {
-			id : '1234',
-			desc : 'Open News Paper main Window'
-		});
+		Titanium.Analytics.featureEvent('open.Main.Window');
 	});
 
 })();

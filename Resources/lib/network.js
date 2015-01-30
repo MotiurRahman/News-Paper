@@ -91,7 +91,7 @@ exports.androidPush = function() {
 			password : '1234'
 		}, function(e) {
 			if (e.success) {
-				//alert("login success" + deviceToken);
+				alert("login success");
 				defaultSubscribe();
 			} else {
 				//alert('Error: ' + ((e.error && e.message) || JSON.stringify(e)));
@@ -106,7 +106,8 @@ exports.androidPush = function() {
 			type : 'gcm'
 		}, function(e) {
 			if (e.success) {
-				//alert('Subscribed for Push Notification!');
+				Ti.App.Properties.setBool('data',true);
+				alert('Subscribed for Push Notification!');
 			} else {
 				//alert('Error:' + ((e.error && e.message) || JSON.stringify(e)));
 			}

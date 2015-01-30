@@ -1,7 +1,9 @@
 function detail(title, link) {
 
 	var window = Titanium.UI.createWindow({
-		title : title
+		title : title,
+		color : '#800000',
+
 	});
 
 	if (Ti.Platform.osname == 'android') {
@@ -9,7 +11,7 @@ function detail(title, link) {
 		var mainView = Ti.UI.createView({
 			width : Ti.UI.FILL,
 			height : 50,
-			backgroundColor : 'red',
+			backgroundColor : 'gray',
 			top : 0
 
 		});
@@ -18,7 +20,7 @@ function detail(title, link) {
 		// Create a Label.
 		var title = Ti.UI.createLabel({
 			text : title,
-			color : 'Green',
+			color : '#800000',
 			font : {
 				fontSize : 20
 			},
@@ -55,7 +57,9 @@ function detail(title, link) {
 	var webview = Titanium.UI.createWebView({
 		url : link,
 		top : (Ti.Platform.osname == 'iphone') ? 0 : 50,
-		zIndex : 3
+		zIndex : 3,
+		borderColor : 'gray',
+		borderWidth : 2,
 	});
 
 	var inTView = Ti.UI.createView({
@@ -74,7 +78,7 @@ function detail(title, link) {
 	webview.addEventListener('load', function() {
 		activityIndicator.hide();
 	});
-	
+
 	window.addEventListener('androidback', function() {
 		Titanium.Analytics.featureEvent('CloseDetailWindow');
 		window.close();
