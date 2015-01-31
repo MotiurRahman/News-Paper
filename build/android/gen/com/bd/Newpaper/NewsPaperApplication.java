@@ -33,6 +33,8 @@ public final class NewsPaperApplication extends TiApplication
 		postAppInfo();
 
 
+	    KrollAssetHelper.setAssetCrypt(new AssetCryptImpl());
+
 
 		V8Runtime runtime = new V8Runtime();
 
@@ -49,42 +51,6 @@ public final class NewsPaperApplication extends TiApplication
 		stylesheet = new ApplicationStylesheet();
 		postOnCreate();
 
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 
 	
 

@@ -1,5 +1,5 @@
 //Application Window Component Constructor
-function ApplicationWindow() {
+function ApplicationWindow(url) {
 	//load component dependencies
 	var FirstView = require('ui/common/newspaper');
 
@@ -8,9 +8,9 @@ function ApplicationWindow() {
 		backgroundColor : '#ffffff',
 		exitOnClose : true
 	});
-
+	
 	//construct UI
-	var firstView = new FirstView(self);
+	var firstView = new FirstView(self, url);
 	self.add(firstView);
 
 	self.addEventListener('androidback', function() {

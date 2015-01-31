@@ -1,1 +1,0 @@
-/Titanium/AppC_project/News Paper/Resources/ui/handheld/android/ApplicationWindow.js

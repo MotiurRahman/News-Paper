@@ -14,10 +14,12 @@ if (Ti.version < 1.8) {
 	alert('Sorry - this application template requires Titanium Mobile SDK 1.8 or later');
 }
 
-
 // This is a single context application with multiple windows in a stack
 (function() {
-	var value = true;
+	//var value = true;
+	var url = "http://bangla.bdnews24.com/?widgetName=rssfeed&widgetId=1151&getXmlFeed=true";
+
+	//var url = "http://bangla.bdnews24.com/?widgetName=rssfeed&widgetId=1151&getXmlFeed=true";
 	//render appropriate components based on the platform and form factor
 	var osname = Ti.Platform.osname,
 	    version = Ti.Platform.version,
@@ -41,13 +43,6 @@ if (Ti.version < 1.8) {
 	}
 
 	//var launch = require('ti.enroll');
-
-	var win = new Window();
-
-	win.open();
-
-	win.addEventListener('open', function() {
-		Titanium.Analytics.featureEvent('open.Main.Window');
-	});
+	new Window(url).open();
 
 })();

@@ -1,5 +1,5 @@
 //Application Window Component Constructor
-function ApplicationWindow() {
+function ApplicationWindow(url) {
 	//load component dependencies
 
 	var FirstView = require('ui/common/newspaper');
@@ -16,7 +16,7 @@ function ApplicationWindow() {
 	});
 
 	var leftBtn = Ti.UI.createButton({
-		backgroundImage : 'KS_nav_ui'
+		systemButton : Titanium.UI.iPhone.SystemButton.INFO_LIGHT
 	});
 	leftBtn.addEventListener("click", function() {
 		navWindow.toggleLeftView();
@@ -24,12 +24,28 @@ function ApplicationWindow() {
 
 	});
 	self.leftNavButton = leftBtn;
-	var winLeft = Ti.UI.createWindow();
+
+	var rightbtn = Ti.UI.createButton({
+		systemButton : Titanium.UI.iPhone.SystemButton.REFRESH
+	});
+	rightbtn.addEventListener("click", function() {
+
+	});
+	self.rightNavButton = rightbtn;
+	
+	
+	
+	var winLeft = Ti.UI.createWindow({
+		backgroundColor:"#fff"
+	});
+	
+
 	var leftTableView = Ti.UI.createTableView({
 		font : {
 			fontSize : 12
 		},
 		rowHeight : 40,
+		top:20,
 		data : [{
 			title : 'About'
 		}, {
@@ -43,13 +59,13 @@ function ApplicationWindow() {
 		case 1:
 			alert("You clicked " + e.rowData.title + ". Implement menu structure.. ");
 			navWindow.toggleLeftView();
-		//	navWindow.setCenterhiddenInteractivity("TouchEnabled");
+			//	navWindow.setCenterhiddenInteractivity("TouchEnabled");
 
 			break;
 		case 2:
 			alert("You clicked " + e.rowData.title + ". Implement menu structure.. ");
 			navWindow.toggleLeftView();
-		//	navWindow.setCenterhiddenInteractivity("TouchEnabled");
+			//	navWindow.setCenterhiddenInteractivity("TouchEnabled");
 
 			break;
 		}
@@ -63,7 +79,7 @@ function ApplicationWindow() {
 		leftLedge : 200
 	});
 
-	var firstView = new FirstView(navWin);
+	var firstView = new FirstView(navWin, url);
 	self.add(firstView);
 
 	return navWindow;

@@ -1,1 +1,0 @@
-/Titanium/AppC_project/News Paper/Resources/lib/adPage.js

@@ -1,6 +1,6 @@
 {
-	"target": "emulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"classname": "NewsPaper",
 	"platformPath": "/Users/gsl001/Library/Application Support/Titanium/mobilesdk/osx/3.5.0.GA/android",
 	"modulesHash": "dd6aef97c7404112e442cec44e9c626c",
@@ -21,13 +21,12 @@
 	"fullscreen": false,
 	"skipJSMinification": true,
 	"mergeCustomAndroidManifest": false,
-	"encryptJS": false,
+	"encryptJS": true,
 	"minSDK": 14,
 	"targetSDK": 19,
-	"propertiesHash": "5cde956408c67f7e934f16b1ede25a58",
+	"propertiesHash": "6f39087e34b1f8f150682e2d5759efac",
 	"activitiesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"servicesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"jssFilesHash": "d41d8cd98f00b204e9800998ecf8427e",
-	"jarLibHash": "e817aded10cd10124591ba088d667906",
-	"liveview": true
+	"jarLibHash": "6ec09af2d0d06bcb0f6c5ba5bffd24c7"
 }

@@ -2,7 +2,7 @@ function detail(title, link) {
 
 	var window = Titanium.UI.createWindow({
 		title : title,
-		color : '#800000',
+		color : '#000',
 
 	});
 
@@ -11,7 +11,7 @@ function detail(title, link) {
 		var mainView = Ti.UI.createView({
 			width : Ti.UI.FILL,
 			height : 50,
-			backgroundColor : 'gray',
+			backgroundColor : '#A9A9A9',
 			top : 0
 
 		});
@@ -20,12 +20,16 @@ function detail(title, link) {
 		// Create a Label.
 		var title = Ti.UI.createLabel({
 			text : title,
-			color : '#800000',
+			color : '#000',
 			font : {
-				fontSize : 20
+				fontSize : 16,
+				fontWeight: 'bold',
+
 			},
 			height : Ti.UI.SIZE,
 			width : Ti.UI.SIZE,
+			left : 5,
+			right : 5
 
 		});
 
